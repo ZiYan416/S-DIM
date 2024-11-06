@@ -100,4 +100,12 @@ public class RoomService {
         Orders orders = ordersMapper.selectByOrderId(orderId);
         return roomMapper.selectByTypeId(orders.getTypeId());
     }
+
+    /**
+     * 统计酒店中某类型的房间数量（未删除）
+     */
+    public int countByTypeAndHotel(Integer hotelId, Integer typeId) {
+        System.out.println("Received request with typeId: " + typeId + " and hotelId: " + hotelId);
+        return roomMapper.countByTypeAndHotel(hotelId, typeId);
+    }
 }

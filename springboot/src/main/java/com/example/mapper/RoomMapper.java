@@ -1,6 +1,7 @@
 package com.example.mapper;
 
 import com.example.entity.Room;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -37,4 +38,9 @@ public interface RoomMapper {
 
     @Select("select * from room where type_id = #{id} and status = '空闲'")
     List<Room> selectByTypeId(Integer id);
+
+    /**
+     * 统计酒店中某类型的房间数量（未删除）
+     */
+    int countByTypeAndHotel(@Param("hotelId") Integer hotelId, @Param("typeId") Integer typeId);
 }

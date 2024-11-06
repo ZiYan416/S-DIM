@@ -90,4 +90,10 @@ public class RoomController {
         return Result.success(page);
     }
 
+    @GetMapping("/countByTypeAndHotel")
+    public Result countByTypeAndHotel(@RequestParam Integer hotelId, @RequestParam Integer typeId) {
+        int count = roomService.countByTypeAndHotel(hotelId, typeId);
+        return Result.success(count);
+    }
+
 }

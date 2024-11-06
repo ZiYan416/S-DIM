@@ -44,11 +44,14 @@
 
     <el-dialog title="信息" :visible.sync="fromVisible" width="40%" :close-on-click-modal="false" destroy-on-close>
       <el-form label-width="100px" style="padding-right: 50px" :model="form" :rules="rules" ref="formRef">
-        <el-form-item prop="title" label="客房编号">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+        <el-form-item prop="name" label="客房编号">
+          <!-- 设置为不可输入状态 -->
+          <el-input v-model="form.name" autocomplete="off" disabled></el-input>
         </el-form-item>
+
         <el-form-item prop="typeId" label="客房分类">
-          <el-select v-model="form.typeId" placeholder="请选择分类" style="width: 100%">
+          <!-- 选择分类时触发生成编号方法 -->
+          <el-select v-model="form.typeId" placeholder="请选择分类" style="width: 100%" @change="generateRoomCode">
             <el-option v-for="item in typeData" :label="item.name" :value="item.id" :key="item.id"></el-option>
           </el-select>
         </el-form-item>
@@ -187,6 +190,28 @@ export default {
     },
     handleCurrentChange(pageNum) {
       this.load(pageNum)
+    },
+    // 根据分类生成房间编号
+    generateRoomCode() {
+      const selectedType = this.typeData.find(item => item.id === this.form.typeId);
+      if (selectedType) {
+        const typeCode = selectedType.name.slice(0, 2).toUpperCase();
+        this.$request.get(`/room/countByTypeAndHotel?typeId=${this.form.typeId}&hotelId=${this.user.id}`).then(res => {
+          if (res.code === '200') {
+            const count = res.data;
+            const codeSuffix = (count + 1).toString().padStart(2, '0');
+            this.form.name = `${typeCode}${codeSuffix}`;
+            this.$nextTick(() => {
+              this.$forceUpdate(); // 强制刷新当前弹窗内容
+            });
+          } else {
+            this.$message.error(res.msg);
+          }
+        }).catch(error => {
+          console.error('请求错误:', error);
+          this.$message.error('请求失败，请稍后再试');
+        });
+      }
     },
   }
 }

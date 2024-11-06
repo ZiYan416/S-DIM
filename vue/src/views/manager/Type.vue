@@ -63,7 +63,7 @@
           </el-upload>
         </el-form-item>
         <el-form-item label="分类名称" prop="name">
-          <el-input v-model="form.name" placeholder="分类名称"></el-input>
+          <el-input v-model="form.name" placeholder="分类名称" @input="nameInput"></el-input>
         </el-form-item>
         <el-form-item label="分类描述" prop="description">
           <el-input v-model="form.description" placeholder="分类描述"></el-input>
@@ -84,6 +84,8 @@
 </template>
 
 <script>
+import * as validation from "@/utils/validation";
+
 export default {
   name: "Admin",
   data() {
@@ -196,6 +198,15 @@ export default {
       // 把房间图片换成上传的图片的链接
       this.$message.success('上传成功')
       this.form.img = response.data
+    },
+    nameInput(value) {
+      // 检查输入是否有非法空格
+      if (validation.noblankInput(value)) {
+        this.form.name = value;
+      } else {
+        this.$message.error('禁止非法空格！'); // 否则显示错误提示
+        this.form.name = this.form.name.replace(/ /g, ''); // 移除
+      }
     },
   }
 }
