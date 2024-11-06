@@ -3,8 +3,8 @@
     <!--  头部  -->
     <div class="manager-header">
       <div class="manager-header-left">
-        <img src="@/assets/imgs/logo.png" />
-        <div class="title">后台管理系统</div>
+        <img style="width: 46px; height: 46px" src="@/assets/imgs/logo.png" />
+        <div class="title"><a style="font-family: 宋体;">奋进</a>后台管理系统</div>
       </div>
 
       <div class="manager-header-center">

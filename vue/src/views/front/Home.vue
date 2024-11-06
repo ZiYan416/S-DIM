@@ -1,6 +1,6 @@
 <template>
   <div class="main-content">
-    <div style="position: absolute; font-size: 40px; font-weight: bold; color: white; font-style: italic; top: 200px; left: 200px">旅行订酒店，就上飞鱼酒店预订网.</div>
+    <div style="position: absolute; font-size: 40px; font-weight: bold; color: white; font-style: italic; top: 200px; left: 200px">旅行订酒店，就上奋进酒店预订网.</div>
     <div>
       <img src="@/assets/imgs/carousel.jpg" style="width: 100%; height: 300px; border-bottom-left-radius: 40%; border-bottom-right-radius: 40%" alt="">
     </div>
@@ -26,7 +26,7 @@
       <div style="margin-top: 30px">
         <el-row :gutter="20">
           <el-col :span="6" v-for="item in hotelData">
-            <img :src="item.avatar" style="width: 100%; height: 175px; border-radius: 10px" alt="" @click="navToDetail(item.id)">
+            <img :src="item.avatar" style="width: 100%; height: auto; border-radius: 10px" alt="" @click="navToDetail(item.id)">
             <div style="font-size: 16px; font-weight: bold; margin-top: 10px; color: #455873FF">{{item.name}}</div>
             <div style="margin-top: 10px">
               <span style="font-weight: bold; font-size: 16px; color: red">￥{{item.price}}</span> 起

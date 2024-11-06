@@ -4,17 +4,17 @@
     <!--头部-->
     <div class="front-header">
       <div class="front-header-left">
-        <img src="@/assets/imgs/logo.png" alt="">
-        <div class="title">飞鱼酒店预订网</div>
+        <img style="width: 50px; height: 50px" src="@/assets/imgs/logo.png" alt="">
+        <div class="title">奋进酒店预订网</div>
       </div>
       <div class="front-header-center">
         <div class="front-header-nav">
           <el-menu :default-active="$route.path" mode="horizontal" router>
-						<el-menu-item index="/front/home">首页</el-menu-item>
-						<el-menu-item index="/front/collect">我的收藏</el-menu-item>
-						<el-menu-item index="/front/orders">我的订单</el-menu-item>
-						<el-menu-item index="/front/history">历史入住</el-menu-item>
-						<el-menu-item index="/front/person">个人中心</el-menu-item>
+            <el-menu-item index="/front/home">首页</el-menu-item>
+            <el-menu-item index="/front/collect">我的收藏</el-menu-item>
+            <el-menu-item index="/front/orders">我的订单</el-menu-item>
+            <el-menu-item index="/front/history">历史入住</el-menu-item>
+            <el-menu-item index="/front/person">个人中心</el-menu-item>
           </el-menu>
         </div>
       </div>
@@ -104,5 +104,5 @@ export default {
 </script>
 
 <style scoped>
-  @import "@/assets/css/front.css";
+@import "@/assets/css/front.css";
 </style>

@@ -2,7 +2,7 @@
   <div class="main-content">
       <div style="width: 60%; margin: 20px auto; display: flex">
         <div style="flex: 1">
-          <img :src="hotelData.avatar" alt="" style="width: 100%; height: 250px; border-radius: 10px">
+          <img :src="hotelData.avatar" alt="" style="width: auto; height: 250px; border-radius: 10px">
         </div>
         <div style="flex: 1; margin-left: 30px">
           <div style="font-size: 18px; font-weight: bold; color: #0F294DFF">{{hotelData.name}}</div>
