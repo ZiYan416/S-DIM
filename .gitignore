@@ -1,0 +1,5 @@
+# 项目排除路径
+/springboot/target/
+/vue/node_modules
+/springboot/src/main/resources/application.yml
+/vue/package-lock.json
