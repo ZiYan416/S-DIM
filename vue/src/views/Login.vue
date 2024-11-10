@@ -16,7 +16,7 @@
             <el-option label="用户" value="USER"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item>
+        <el-form-item >
           <el-button style="width: 100%; color: white" type="warning" @click="login">登 录</el-button>
         </el-form-item>
         <div style="display: flex; align-items: center">
